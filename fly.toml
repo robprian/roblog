@@ -1,4 +1,4 @@
-app = "roblog"
+app = "robby"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -7,7 +7,7 @@ processes = []
   dockerfile = "Dockerfile"
 
 [mounts]
-  source = "robprian_data"
+  source = "robby_data"
   destination = "/robprian"
   initial_size = "30GB"
 
