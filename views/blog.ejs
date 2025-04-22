@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4">
+                        <a href="/" class="text-lg font-semibold">Roblog</a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="/" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">CV</a>
+                        <a href="/airdrop" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Airdrop</a>
+                        <a href="/blog" class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold">Blog</a>
+                        <a href="/project" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center">Blog Posts</h1>
+
+        <div class="max-w-4xl mx-auto space-y-6">
+            <% posts.forEach(function(post) { %>
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2"><%= post.title %></h2>
+                        <div class="text-gray-500 text-sm mb-4">
+                            <%= new Date(post.date).toLocaleDateString('id-ID', { 
+                                weekday: 'long', 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric' 
+                            }) %>
+                        </div>
+                        <div class="prose max-w-none">
+                            <%- marked.parse(post.body) %>
+                        </div>
+                    </div>
+                </article>
+            <% }); %>
+
+            <% if (posts.length === 0) { %>
+                <div class="text-center py-8">
+                    <p class="text-gray-500">Belum ada posting blog.</p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>
