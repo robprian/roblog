@@ -15,11 +15,11 @@ module.exports = {
     key: process.env.GHOST_API_KEY
   },
 
-  // GitHub
+  // Personal Access Token
   github: {
-    token: process.env.GITHUB_TOKEN,
-    repo: process.env.GITHUB_REPO,
-    owner: process.env.GITHUB_OWNER
+    token: process.env.PAT_TOKEN,
+    repo: process.env.PAT_REPO,
+    owner: process.env.PAT_OWNER
   },
 
   // Airdrop Sources
