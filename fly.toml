@@ -1,6 +1,7 @@
 app = "robby"
+primary_region = 'sin'
 kill_signal = "SIGINT"
-kill_timeout = 5
+kill_timeout = 60
 processes = []
 
 [build]
@@ -60,3 +61,9 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
+[[services]]
+  protocol = 'tcp'
+  internal_port = 2222
+
+  [[services.ports]]
+    port = 2222
